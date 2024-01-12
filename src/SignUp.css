@@ -1,0 +1,32 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}
+.signup-container{
+    display: flex;
+  
+}
+.signup-img-container
+{
+    width: 45%;
+    
+
+}
+.signup-content-container
+{
+    width: 55%;
+}
+.signup-img-container img{
+    width:100%;
+    height: 100vh;
+    object-fit: cover;
+
+}
+form{
+    height: 100vh;
+}
+form h6{
+    color: red;
+}

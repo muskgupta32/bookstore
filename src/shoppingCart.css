@@ -1,0 +1,55 @@
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px; /* Adjust margin as needed */
+  margin-bottom:80px ;
+}
+
+.cart-table th,
+.cart-table td {
+  border: 1px solid #dfe6e9; /* Add border for better visibility */
+  padding: 10px;
+  text-align: center;
+}
+
+.items {
+  display: flex;
+  align-items: center;
+  justify-content: space-around; /* Adjust to space around */
+  height: 150px;
+  font-size: 18px;
+}
+
+td img {
+  max-width: 120px; /* Adjust max-width for the image */
+  max-height: 110px; /* Adjust max-height for the image */
+  margin-right: 10px;
+}
+
+td button {
+  background-color: #2d3436;
+  border: none; /* Add border to the buttons */
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px 10px; /* Adjust padding for better button appearance */
+  margin: 0 20px; /* Add space between buttons */
+  color: white;
+  
+}
+.qty-btn button{
+  border-radius: 50%;
+}
+
+.CheckoutBtn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #2d3436;
+  color: white;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.totalcart
+{
+  font-size: 22px;
+}
