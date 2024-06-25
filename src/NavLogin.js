@@ -5,12 +5,13 @@ import { useSelector } from 'react-redux';
 
 function NavLogin() {
   const navigate = useNavigate();
-  
-  // Using useSelector to get cartProductsRedux from Redux store
-  const cartProductsRedux = useSelector((state) => state.shoppingCart.cartProducts);
 
-  // Initialize cartProducts with empty array if cartProductsRedux is null or undefined
-  const initialCartProducts = cartProductsRedux || [];
+  // Fetching cartProductsRedux from Redux store
+  const cartProductsRedux = useSelector(state => state.shoppingCart.cartProducts);
+
+  // Initialize cartProducts with local storage or empty array if cartProductsRedux is null
+  const savedCartProducts = localStorage.getItem('cartProducts');
+  const initialCartProducts = cartProductsRedux || (savedCartProducts ? JSON.parse(savedCartProducts) : []);
 
   // State to manage cart products locally
   const [cartProducts, setCartProducts] = useState(initialCartProducts);
