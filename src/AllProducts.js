@@ -5,52 +5,60 @@ import { useNavigate } from "react-router-dom";
 
 function AllProducts() {
   let navigate = useNavigate();
-  const productsArray = useSelector(function (output) {
-    return output.bookstore.productDetails;
-  });
-
+  const productsArray = useSelector((state) => state.bookstore.productDetails);
   const dispatch = useDispatch();
 
-  function getTheData() {
-    dispatch(fetchTheData());
-  }
-
   useEffect(() => {
-    getTheData();
-  }, []);
+    dispatch(fetchTheData());
+  }, [dispatch]);
 
   const handleAddToCart = (product) => {
     dispatch(addTheProducts(product));
   };
 
+  const handleCardClick = (productId) => {
+    navigate(`/book-details/${productId}`);
+  };
+
   return (
     <div className='container' style={{ marginTop: '40px' }}>
       <div className="card-container">
-        {productsArray.map(function (product) {
-          return (
-            <div className="card" key={product.id} onClick={(event) => {
-              // Check if the clicked element or its ancestors have the class "card-link" or "btn"
-              if (!event.target.closest(".card-link") && !event.target.closest(".btn")) {
-                // Execute the navigation only if the clicked element or its ancestors do not have the specified classes
-                console.log("event.target.classList", event.target.classList);
-                navigate(`/book-details/${product.id}`);
-              }
-            }}>
-              <img src={product.image_url} className="card-img-top" alt="book" />
-              <div className="card-body">
-                <h5 className="card-title">{product.title}</h5>
-              </div>
+        {productsArray.map((product) => (
+          <div
+            className="card"
+            key={product.id}
+            onClick={() => handleCardClick(product.id)}
+          >
+            <img src={product.image_url} className="card-img-top" alt="book" />
+            <div className="card-body">
+              <h5 className="card-title">{product.title}</h5>
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">Author: {product.authors}</li>
                 <li className="list-group-item">Price: Rs. {product.num_pages}</li>
               </ul>
-              <div className="card-body">
-                <a href="#" onClick={() => handleAddToCart(product)} className="card-link btn">Add to Cart</a>
-                <a href="#" onClick={() => navigate("/shoppingCart")} className="card-link btn">Go to Cart</a>
+              <div className="card-body d-flex justify-content-between">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent card click from triggering
+                    handleAddToCart(product);
+                  }}
+                  className="btn btn-dark"
+                >
+                  Add to Cart
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent card click from triggering
+                    navigate("/shoppingCart");
+                  }}
+                  className="btn btn-dark"
+                >
+                  Go to Cart
+                </button>
               </div>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
     </div>
   );
