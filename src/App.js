@@ -1,5 +1,7 @@
 import './App.css';
-import Navbar from './Navbar.js';
+// import Navbar from './Navbar.js';
+import React from 'react';
+
 import Home from './Home.js';
 import ShoppingCart from './ShoppingCart.js';
 import { BrowserRouter,  Route, Routes } from 'react-router-dom';
