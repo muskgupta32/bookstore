@@ -29,9 +29,9 @@ function NavLogin() {
             BOOKSTORE
           </a>
           <div className='buttons'>
-            {/* <Link to="/shoppingCart" className='btn btn-outline-light ms-2'>
-              <i className='fa fa-shopping-cart me-1'></i>Cart ({cartProducts.length})
-            </Link> */}
+            <Link to="/shoppingCart" className='btn btn-outline-light ms-2'>
+              <i className='fa fa-shopping-cart me-1'></i>Cart 
+            </Link>
             <a href='' onClick={() => navigate("/login")} className='btn btn-outline-light ms-2'>
               <i className='fa fa-sign-in me-1'></i>Login
             </a>
