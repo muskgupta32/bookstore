@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 function NavLogin() {
   const navigate = useNavigate();
-
+  
   // Fetching cartProductsRedux from Redux store
   const cartProductsRedux = useSelector(state => state.shoppingCart.cartProducts);
 
@@ -25,19 +24,19 @@ function NavLogin() {
     <div>
       <nav className="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
         <div className="container">
-          <a onClick={() => navigate("/")} className="navbar-brand fw-bold fs-4" href="#">
+          <Link to="/" className="navbar-brand fw-bold fs-4">
             BOOKSTORE
-          </a>
+          </Link>
           <div className='buttons'>
             <Link to="/shoppingCart" className='btn btn-outline-light ms-2'>
               <i className='fa fa-shopping-cart me-1'></i>Cart 
             </Link>
-            <a href='' onClick={() => navigate("/login")} className='btn btn-outline-light ms-2'>
+            <Link to="/login" className='btn btn-outline-light ms-2'>
               <i className='fa fa-sign-in me-1'></i>Login
-            </a>
-            <a href='' onClick={() => navigate("/signup")} className='btn btn-outline-light ms-2'>
+            </Link>
+            <Link to="/signup" className='btn btn-outline-light ms-2'>
               <i className='fa fa-user-plus me-1'></i>Sign Up
-            </a>
+            </Link>
           </div>
         </div>
       </nav>
