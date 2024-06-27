@@ -29,7 +29,7 @@ function NavLogin() {
           </Link>
           <div className='buttons'>
             <Link to="/shoppingCart" className='btn btn-outline-light ms-2'>
-              <i className='fa fa-shopping-cart me-1'></i>Cart 
+              <i className='fa fa-shopping-cart me-1'></i>Cart ({cartProducts.length})
             </Link>
             <Link to="/login" className='btn btn-outline-light ms-2'>
               <i className='fa fa-sign-in me-1'></i>Login
